@@ -16,17 +16,23 @@ table td { border: 1px solid #d0d0d0; }
 </head>
 <body>
 <p>
-  Try uploading a CSV file, such as <a href="cars.csv">cars.csv</a> or <a href="earthquakes.csv">earthquakes.csv</a><br/>
+  Try uploading a CSV file, such as <a href="sessions-data.active.csv">sessions-data.active.csv</a></br>
   This page uses <a href="https://developer.mozilla.org/en-US/docs/DOM/FileReader">FileReader</a>
-  and <a href="http://d3js.org/">d3</a> to render the table.
+  and <a href="http://d3js.org/">d3</a> to render the table.</br>
+  Graph from <a href="https://plot.ly/javascript/time-series/">Plotly Time Series</a>, supported by <a href="https://d3js.org/">D3.JS</a></b>
+  Author: JAYYA
 </p>
 <input type="file" id="uploader">
 <p id="stats">
 </p>
 <table id="table">
+  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+
 
 </table>
 <script src="http://d3js.org/d3.v2.js"></script>
+<script src="https://d3js.org/d3-time-format.v2.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="main.js"></script>
 <script>
 upload_button("uploader", load_dataset);
