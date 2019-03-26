@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>D3 CSV Upload</title>
+<title>D3/Plotly CSV Upload</title>
 <style>
 body { font-family: Ubuntu, Helvetica, sans-serif; font-size: 12px; }
 table { font-size: 10px; border-collapse: collapse; }
@@ -17,19 +17,26 @@ table td { border: 1px solid #d0d0d0; }
 <body>
 <p>
   Try uploading a CSV file, such as <a href="sessions-data.active.csv">sessions-data.active.csv</a></br>
+  CSV file will follow the format(4 column) I got from the examples: [Timestamp, data, data, delay]</br>
+  Try Remove empty lines from the file or you will get some date like 1986.</br>
+  You can select area to zoom in</br>
+  There is a hidden menu on the top right.</br>
+</br></br>
+ Time Stamp Format: UTC
+</br>
+ Data: Delay Average on the same time stamp
+</br></br>
+
   This page uses <a href="https://developer.mozilla.org/en-US/docs/DOM/FileReader">FileReader</a>
   and <a href="http://d3js.org/">d3</a> to render the table.</br>
-  Graph from <a href="https://plot.ly/javascript/time-series/">Plotly Time Series</a>, supported by <a href="https://d3js.org/">D3.JS</a></b>
+  Graph from <a href="https://plot.ly/javascript/time-series/">Plotly Time Series</a>, supported by <a href="https://d3js.org/">D3.JS</a></br>
   Author: JAYYA
 </p>
 <input type="file" id="uploader">
 <p id="stats">
 </p>
-<table id="table">
-  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
-
-
-</table>
+<div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+<table id="table"></table>
 <script src="http://d3js.org/d3.v2.js"></script>
 <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
