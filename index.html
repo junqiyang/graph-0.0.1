@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <title>D3/Plotly CSV Upload</title>
 <style>
 body { font-family: Ubuntu, Helvetica, sans-serif; font-size: 12px; }
@@ -33,10 +35,40 @@ table td { border: 1px solid #d0d0d0; }
   Author: JAYYA
 </p>
 <input type="file" id="uploader">
-<p id="stats">
+
+
+
+
+<p>
+Click to copy the file to the current directory by perl script</br>
+<button type="button" onclick="execute_perl()">Execute Perl</button>
+<p id="execute_perl"></p>
+ 
+
+<script>
+function execute_perl() {
+	$.ajax({
+	      type:'get',
+	      url:'/executeperl',
+	      cache:false,
+	      async:'asynchronous',
+	      dataType:'json',
+	      success: function(data) {
+		console.log((data))
+	      },
+	 });
+      }
+</script>
 </p>
-<div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
-<table id="table"></table>
+
+
+
+<p>Click to display local file</br>
+<button type="button" onclick="display_localfile()">Date</button></p>
+<p id="demo"></p>
+
+
+<div id="myDiv" style="height: 800px;"><!-- Plotly chart will be drawn inside this DIV --></div>
 <script src="http://d3js.org/d3.v2.js"></script>
 <script src="https://d3js.org/d3-time-format.v2.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -44,5 +76,12 @@ table td { border: 1px solid #d0d0d0; }
 <script>
 upload_button("uploader", load_dataset);
 </script>
+
+<p id="stats">
+</p>
+<table id="table">
+
+
+</table>
 </body>
 </html>
